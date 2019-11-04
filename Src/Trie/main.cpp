@@ -29,8 +29,8 @@ class TrieAsWordList {
             if (current->children[wrd[i]-'a'] == nullptr) {
                 current->children[wrd[i]-'a'] = new TrieNode();
                 current->children[wrd[i]-'a']->value = wrd[i];
-                current  = current->children[wrd[i]-'a'];
             }
+            current  = current->children[wrd[i]-'a'];
         }
         current->isTerminal = true;
     }
