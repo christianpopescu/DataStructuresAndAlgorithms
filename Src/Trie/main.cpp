@@ -26,16 +26,15 @@ public:
          char wrd [n];
         std::strcpy(wrd,wordToAdd.c_str());
         TrieNode* current = &root;
-/*        for (int i=0; i<n; ++i) {
+        for (int i=0; i<n; ++i) {
             if (current->children[wrd[i]-'a'] == nullptr) {
                 current->children[wrd[i]-'a'] = new TrieNode();
                 current->children[wrd[i]-'a']->value = wrd[i];
-                current = current->children[wrd[i]-'a'];
-            }
+                }
             current  = current->children[wrd[i]-'a'];
-        }c
+        }
         current->isTerminal = true;
-        current->theWord = wordToAdd;*/
+        current->theWord = wordToAdd;
     }
 };
 int main() {
