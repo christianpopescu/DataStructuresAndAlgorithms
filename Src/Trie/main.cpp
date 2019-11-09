@@ -43,5 +43,7 @@ int main() {
     std::cout << "Hello, World!" << std::endl;
     TrieAsWordList trieAsWordList;
     trieAsWordList.AddWordToList("toto");
+    trieAsWordList.AddWordToList("titi");
+
     return 0;
 }
