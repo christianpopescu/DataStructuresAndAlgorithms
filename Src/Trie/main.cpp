@@ -1,6 +1,8 @@
 #include <bits/stdc++.h>
 #include <iostream>
 
+#define INDEX(chr) chr - 'a'
+
 class TrieNode {
 public:
     char value;
@@ -22,16 +24,16 @@ public:
     }
 
      void AddWordToList(const std::string& wordToAdd) {
-         unsigned long n = wordToAdd.size() + 1;
+         unsigned long n = wordToAdd.size() ;
          char wrd [n];
         std::strcpy(wrd,wordToAdd.c_str());
         TrieNode* current = &root;
         for (int i=0; i<n; ++i) {
-            if (current->children[wrd[i]-'a'] == nullptr) {
-                current->children[wrd[i]-'a'] = new TrieNode();
-                current->children[wrd[i]-'a']->value = wrd[i];
+            if (current->children[INDEX(wrd[i])] == nullptr) {
+                current->children[INDEX(wrd[i])] = new TrieNode();
+                current->children[INDEX(wrd[i])]->value = wrd[i];
                 }
-            current  = current->children[wrd[i]-'a'];
+            current  = current->children[INDEX(wrd[i])];
         }
         current->isTerminal = true;
         current->theWord = wordToAdd;
