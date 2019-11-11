@@ -62,6 +62,16 @@ public:
 protected:
     TrieNode* first;
     TrieNode* current;
+    vector<TrieNode*> listToIterate;
+    void Visit(TrieNode * node) {
+        if (node == nulptr) return;
+        listToIterate.push_back(node);
+        for (int =0; i<26; ++i) {
+            if (node->children[i] != nullptr) Visit(node->children[i] )
+        }
+    }
+
+
 };
 
 int main() {
