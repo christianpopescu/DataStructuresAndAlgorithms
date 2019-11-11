@@ -3,9 +3,7 @@
 
 #define INDEX(chr) chr - 'a'
 
-class TrieIterator {
-    TrieIterator
-};
+class TrieIterator;
 
 class TrieNode {
 public:
@@ -25,7 +23,6 @@ class TrieAsWordList {
 public:
     TrieAsWordList() {
         root.value = '$';    // special value for root
-
     }
 
      void AddWordToList(const std::string& wordToAdd) {
@@ -49,25 +46,39 @@ class TrieIterator {
 
 public:
     TrieIterator (TrieNode* root) {
-        first = current = root;
+        first = root;
+        current = 0;
+        Visit(root);
+        end = nullptr;
+        listToIterate.push_back(end);
+
     }
     void First() {
-        current = first;
+        current = 0;
+    }
+
+    void Next() {
+        current++;
     }
 
     TrieNode* Current() {
-        return current;
+        return listToIterate[current];
+    }
+
+    TrieNode* End() {
+        return listToIterate[listToIterate.size()-1];
     }
 
 protected:
     TrieNode* first;
-    TrieNode* current;
-    vector<TrieNode*> listToIterate;
+    TrieNode* end;
+    int current;
+    std::vector<TrieNode*> listToIterate;
     void Visit(TrieNode * node) {
-        if (node == nulptr) return;
+        if (node == nullptr) return;
         listToIterate.push_back(node);
-        for (int =0; i<26; ++i) {
-            if (node->children[i] != nullptr) Visit(node->children[i] )
+        for (int i = 0; i < 26; ++i) {
+            if (node->children[i] != nullptr) Visit(node->children[i] );
         }
     }
 
