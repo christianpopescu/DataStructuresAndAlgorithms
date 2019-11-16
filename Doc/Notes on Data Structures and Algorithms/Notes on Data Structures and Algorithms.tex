@@ -1,8 +1,13 @@
 \documentclass[a4paper,12pt]{book}
 \usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
 \usepackage{graphicx}
 \usepackage{algorithm2e}
 \usepackage{tikz}
+\usepackage[nottoc]{tocbibind}
+\usepackage[backend=bibtex,style=alphabetic,citestyle=authoryear]{biblatex}
+\usepackage{appendix}
+\addbibresource{./Bibliography/DataStructuresAndAlgorithms.bib}
 % !TeX spellcheck = en_US
 
 \begin{document}
@@ -24,5 +29,19 @@
 
 \backmatter
 % bibliography, glossary and index would go here.
-
+\begin{appendices}
+	
+	\chapter{Supplementary Information}
+	
+	\section{Tables}
+	
+	\section{Figures}
+	
+	\chapter{References}
+	
+\printbibliography
+	
+%	\bibliographystyle{abbrv}
+	
+\end{appendices}
 \end{document}
