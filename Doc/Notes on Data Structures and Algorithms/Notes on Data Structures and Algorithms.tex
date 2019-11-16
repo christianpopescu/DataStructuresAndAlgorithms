@@ -6,6 +6,7 @@
 \usepackage{tikz}
 \usepackage[nottoc]{tocbibind}
 \usepackage[backend=bibtex,style=alphabetic,citestyle=authoryear]{biblatex}
+\usepackage[linktocpage=true]{hyperref}
 \usepackage{appendix}
 \addbibresource{./Bibliography/DataStructuresAndAlgorithms.bib}
 % !TeX spellcheck = en_US
@@ -19,13 +20,17 @@
 \frontmatter
 \maketitle
 \tableofcontents
+\setcounter{secnumdepth}{5}
+%\setcounter{tocdepth}{5}
 
 \mainmatter
+\part{Data structures}
 \include{./TeX_files/chapter01}
 \include{./TeX_files/chapter_sorting}
 \include{./TeX_files/chapter_trees}
 \include{./TeX_files/chapter02}
 \include{./TeX_files/chapter03}
+\part{Algorithms Techniques}
 
 \backmatter
 % bibliography, glossary and index would go here.
