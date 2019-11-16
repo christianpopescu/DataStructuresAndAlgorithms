@@ -1,0 +1,48 @@
+\documentclass[a4paper,12pt]{book}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{graphicx}
+\usepackage{algorithm2e}
+\usepackage{tikz}
+\usepackage[nottoc]{tocbibind}
+\usepackage[backend=bibtex,style=alphabetic,citestyle=authoryear]{biblatex}
+\usepackage[linktocpage=true]{hyperref}
+\usepackage{appendix}
+\addbibresource{./Bibliography/DataStructuresAndAlgorithms.bib}
+% !TeX spellcheck = en_US
+
+\begin{document}
+
+\author{Christian Popescu}
+\title{Notes on C++}
+\date{November 2019}
+
+\frontmatter
+\maketitle
+\tableofcontents
+\setcounter{secnumdepth}{5}
+%\setcounter{tocdepth}{5}
+
+\mainmatter
+\part{Introduction}
+\include{./TeX_files/chapter_classes}
+\part{STL}
+
+\backmatter
+% bibliography, glossary and index would go here.
+\begin{appendices}
+	
+	\chapter{Supplementary Information}
+	
+	\section{Tables}
+	
+	\section{Figures}
+	
+	\chapter{References}
+	
+\printbibliography
+	
+%	\bibliographystyle{abbrv}
+	
+\end{appendices}
+\end{document}
