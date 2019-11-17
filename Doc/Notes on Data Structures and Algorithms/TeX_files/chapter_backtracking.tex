@@ -8,5 +8,24 @@ For a given problem we search all the sequences  $\bm{x_{1}x_{2} ... x_{n}}$ for
  $\bm{P_n(x_{1},x_{2}, ..., x_{n})}$
 
 \bigskip where: $\bm{x_k \in D_k}$ (some given domain of integers )
+\\
+The backtrack method consists in designing "cutoff"/"bounding" properties $\bm{P_l(x_{1},x_{2}, ..., x_{l})}$ for $\bm{1\leq l < n}$ such that: 
 
-The backtrack method consists in designing "cutoff"/"bounding" properties $\bm{P_l(x_{1},x_{2}, ..., x_{l})}$ for $1\leq l \textless n$ 
+\begin{itemize}
+ \item $\bm{P_l(x_{1},x_{2}, ..., x_{l})}$ is true whenever $\bm{P_{l+1}(x_{1},x_{2}, ..., x_{l+1})}$ is true;
+ \item $\bm{P_l(x_{1},x_{2}, ..., x_{l})}$ is simple to test, if $\bm{P_{l-1}(x_{1},x_{2}, ..., x_{l-1})}$ holds.
+ 
+\end{itemize}
+
+\section{Algorithm}
+\subsection{Recurisive version}
+\SetKwProg{Fn}{Function}{}{end}\SetKwFunction{FRecurs}{FnRecursive}%
+\SetAlgoLongEnd
+\begin{algorithm}
+\Fn{Backtracking}
+\end{algorithm}
+
+
+\section{References}
+
+Bactracking from \cite{KnuthArtOfCompProg4-5b}

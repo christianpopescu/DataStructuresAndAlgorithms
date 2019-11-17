@@ -56,5 +56,29 @@
     }
     \field{year}{1993}
   \endentry
+
+  \entry{KnuthArtOfCompProg4-5b}{book}{}
+    \name{author}{1}{}{%
+      {{hash=KDE}{%
+         family={Knuth},
+         family_i={K\bibinitperiod},
+         given={Donald\bibnamedelima E.},
+         given_i={D\bibinitperiod\bibinitdelim E\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Addison-Wesley}%
+    }
+    \strng{namehash}{KDE1}
+    \strng{fullhash}{KDE1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelalpha}{Knu19}
+    \field{labelyear}{2019}
+    \field{sortinit}{K}
+    \field{sortinithash}{K}
+    \field{title}{The Art of Computer Programming - prefascicle 5B}
+    \field{year}{2019}
+  \endentry
 \endsortlist
 \endinput
