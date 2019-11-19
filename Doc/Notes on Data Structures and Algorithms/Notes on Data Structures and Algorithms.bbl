@@ -1,0 +1,84 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 2.7 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated as
+% required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+\sortlist[entry]{anyt/global/}
+  \entry{latexcompanion}{book}{}
+    \name{author}{3}{}{%
+      {{hash=GM}{%
+         family={Goossens},
+         family_i={G\bibinitperiod},
+         given={Michel},
+         given_i={M\bibinitperiod},
+      }}%
+      {{hash=MF}{%
+         family={Mittelbach},
+         family_i={M\bibinitperiod},
+         given={Frank},
+         given_i={F\bibinitperiod},
+      }}%
+      {{hash=SA}{%
+         family={Samarin},
+         family_i={S\bibinitperiod},
+         given={Alexander},
+         given_i={A\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Addison-Wesley}%
+    }
+    \strng{namehash}{GMMFSA1}
+    \strng{fullhash}{GMMFSA1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelalpha}{GMS93}
+    \field{labelyear}{1993}
+    \field{sortinit}{G}
+    \field{sortinithash}{G}
+    \field{edition}{3}
+    \field{title}{The \LaTeX\ Companion}
+    \list{location}{1}{%
+      {Reading, Massachusetts}%
+    }
+    \field{year}{1993}
+  \endentry
+
+  \entry{KnuthArtOfCompProg4-5b}{book}{}
+    \name{author}{1}{}{%
+      {{hash=KDE}{%
+         family={Knuth},
+         family_i={K\bibinitperiod},
+         given={Donald\bibnamedelima E.},
+         given_i={D\bibinitperiod\bibinitdelim E\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Addison-Wesley}%
+    }
+    \strng{namehash}{KDE1}
+    \strng{fullhash}{KDE1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelalpha}{Knu19}
+    \field{labelyear}{2019}
+    \field{sortinit}{K}
+    \field{sortinithash}{K}
+    \field{title}{The Art of Computer Programming - prefascicle 5B}
+    \field{year}{2019}
+  \endentry
+\endsortlist
+\endinput
