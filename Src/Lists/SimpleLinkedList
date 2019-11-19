@@ -1,0 +1,46 @@
+template<typename E> class SingleLinkedList;
+template<typename E>
+class SingleLinkedNode{
+private:
+       E elem;
+       SingleLinkedNode<E>* next;
+       friend class SingleLinkedList<E>;
+};
+
+template<typename E>
+class SingleLinkedList {
+
+public:
+       void RemoveFront () {
+             SingleLinkedNode<E>* old = head;
+             head = head->next;
+             delete old;
+       }
+
+
+       SingleLinkedList(void) 
+             : head ( nullptr) {
+       }
+
+       ~SingleLinkedList(void) {
+             while (!empty()) RemoveFront();
+       }
+
+       bool empty() {
+             return head == nullptr;
+       }
+
+       void AddFront (const E& element) {
+             SingleLinkedNode<E>* nd = new SingleLinkedNode<E>(); 
+             nd->elem = element;
+             nd->next = head->next;
+             head =  nd;
+       }
+
+        E Front() {
+             return 250; //head->elem;
+       }
+
+private:
+       SingleLinkedNode<E>* head;
+};
