@@ -41,8 +41,9 @@ vector<int> merge2Ways(const vector<int>& lst1, const vector<int> lst2){
   
 }
 int main(){ 
-  vector<int> v1 = {2, 4, 7};
-  vector<int> v2 = {2, 3, 4};
-  
+  vector<int> v1 = {2, 4, 7, 9};
+  vector<int> v2 = {2, 3, 4, 9, 13, 15};
+
+  for(auto i : merge2Ways(v1, v2)) cout << i << endl;
   cout << "End of program" << endl;
 }
