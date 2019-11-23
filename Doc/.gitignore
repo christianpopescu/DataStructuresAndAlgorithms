@@ -1,6 +1,10 @@
+#Latex related
 *.aux
 *.log
 *.synctex.gz
 *.toc
 *.pdf
 *.out
+*.bbl
+*.blg
+*.xml

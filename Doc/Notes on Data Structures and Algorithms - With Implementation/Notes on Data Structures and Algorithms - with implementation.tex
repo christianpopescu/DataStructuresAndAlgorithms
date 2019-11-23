@@ -1,0 +1,56 @@
+\documentclass[a4paper,12pt]{book}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{graphicx}
+\usepackage{algorithm2e}
+\usepackage{tikz}
+\usepackage[nottoc]{tocbibind}
+\usepackage[backend=bibtex,style=alphabetic,citestyle=authoryear]{biblatex}
+\usepackage[linktocpage=true]{hyperref}
+\usepackage{appendix}
+\usepackage{amsmath}
+\usepackage{bm}
+\addbibresource{./Bibliography/DataStructuresAndAlgorithms.bib}
+% !TeX spellcheck = en_US
+
+\begin{document}
+
+\author{Christian Popescu}
+\title{Notes on Data Structures and Algorithms - with implementation}
+\date{November 2019}
+
+\frontmatter
+\maketitle
+\tableofcontents
+\setcounter{secnumdepth}{5}
+%\setcounter{tocdepth}{5}
+
+\mainmatter
+\include{./TeX_files/part_data_structures}
+\include{./TeX_files/chapter_disjointsets}
+
+
+
+\include{./TeX_files/chapter_sorting}
+\include{./TeX_files/chapter_trees}
+\include{./TeX_files/part_algorithms_techniques}
+\include{./TeX_files/chapter_backtracking}
+
+\backmatter
+% bibliography, glossary and index would go here.
+\begin{appendices}
+	
+	\chapter{Supplementary Information}
+	
+	\section{Tables}
+	
+	\section{Figures}
+	
+	\chapter{References}
+	
+\printbibliography
+	
+%	\bibliographystyle{abbrv}
+	
+\end{appendices}
+\end{document}
