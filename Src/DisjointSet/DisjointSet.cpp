@@ -59,15 +59,16 @@ void MakeDisjointSet(vector<SetNode>& ds) {
 
 void Union(int set1, int set2) {
 	if (DisjointSet[set1].pSet == DisjointSet[set2].pSet ) return; // nothing to do
+	cout << DisjointSet[set1].nbElem << "  <   " << DisjointSet[set2].nbElem << endl;
 	if (DisjointSet[set1].nbElem > DisjointSet[set2].nbElem ){
 	  DisjointSet[set1].pSet = merge2Ways(DisjointSet[set1].pSet, DisjointSet[set2].pSet);
-		DisjointSet[set1].nbElem =DisjointSet[set1].pSet->size();
+	  cout << set1 <<  "Nb elem = " << (DisjointSet[set1].nbElem =DisjointSet[set1].pSet->size()) << endl;
 		 DisjointSet[set2].pSet =  DisjointSet[set1].pSet;
-		DisjointSet[set2].nbElem =DisjointSet[set2].pSet->size();
+	 cout << set2 <<  "Nb elem = " << (DisjointSet[set2].nbElem =DisjointSet[set2].pSet->size()) << endl;
 	} else {
 
     	DisjointSet[set2].pSet = merge2Ways(DisjointSet[set1].pSet, DisjointSet[set2].pSet);
-		DisjointSet[set2].nbElem =DisjointSet[set2].pSet->size();
+	cout <<  set2 << "Nb elem = " <<	(DisjointSet[set2].nbElem =DisjointSet[set2].pSet->size()) << endl;
 		DisjointSet[set1].pSet =  DisjointSet[set2].pSet;
 		DisjointSet[set1].nbElem =DisjointSet[set1].pSet->size();
 	}
