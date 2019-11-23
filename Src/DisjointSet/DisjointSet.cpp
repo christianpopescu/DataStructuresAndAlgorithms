@@ -14,6 +14,7 @@ void MakeDisjointSet(vector<vector<int>*>& ds) {
 
 void Union(int set1, int set2) {
   if (set1 == set2) return;
+  if (DisjointSet[set1] == DisjointSet[set2]) return;
   int s,d;
   vector<int>* tmp;
   if (DisjointSet[set1]->size() > DisjointSet[set2]->size()) {
