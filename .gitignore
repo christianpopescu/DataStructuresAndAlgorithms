@@ -195,5 +195,9 @@ ModelManifest.xml
 cmake-build-debug/
 .idea/
 
+# C++ build
+*.o
+*.exe
+
 # Latex
 *.out
