@@ -52,7 +52,7 @@ vector<SetNode> DisjointSet(10);
 
 void MakeDisjointSet(vector<SetNode>& ds) {
 	for (int i=0; i < ds.size(); ++i){
-		ds[i].pSet = new <vector<int>>(i,1);
+		ds[i].pSet = new vector<int>(1,i);
 		ds[i].nbElem = 1;
 	} 
 }
@@ -73,12 +73,30 @@ void Union(int set1, int set2) {
 	}
 }
 
+int Find(int i) {
+  return (*(DisjointSet[i].pSet))[0]; // return first element of set
+}
+
+int SizeSet(int i) {
+  return DisjointSet[i].nbElem; // return first element of set
+}
+
+
+
 int main(){ 
   
-		
-	vector<int> v1 = {2, 4, 7, 9};
-  vector<int> v2 = {2, 3, 4, 9, 13, 15};
-
-  for(auto i : merge2Ways(v1, v2)) cout << i << endl;
+  MakeDisjointSet(DisjointSet);
+  for (int i=1; i<10; ++i) {
+    cout << SizeSet(i) << "set id =" << Find(i) <<  endl;
+  }
+  Union(1,2);
+  Union(1,3);
+  cout << SizeSet(1) << endl;
+  cout << SizeSet(2) << endl;
+  cout << SizeSet(3) << endl;
+  cout << "------------------------" << endl;
+  cout << Find(2) << endl;
+  cout << Find(3) << endl;
+  cout << Find(4) << endl;
   cout << "End of program" << endl;
 }
