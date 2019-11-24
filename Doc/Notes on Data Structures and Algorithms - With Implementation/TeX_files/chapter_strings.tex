@@ -1,0 +1,61 @@
+% !TeX spellcheck = en_US
+\chapter{Strings}
+\section{Tries}
+
+\subsection{Simple non compressed trie}
+
+It's about merging two sorted list.
+\lstset { %
+	language=C++,
+	backgroundcolor=\color{black!5}, % set backgroundcolor
+	basicstyle=\footnotesize,% basic font setting
+	tabsize=4,
+}
+
+\color{blue}
+\begin{lstlisting}
+
+class TrieNode {
+	public:
+		TrieNode* chld[26];
+		bool isTerminal = false;
+		int nw = 0;
+		TrieNode() {
+		for (int i=0; i<26; ++i) chld[i] = nullptr;
+}
+};
+
+TrieNode* root = new TrieNode;
+
+// add word to trie
+void AddWordToList(const std::string& wordToAdd) {
+	unsigned long n = wordToAdd.size() ;
+	TrieNode* current = root;
+	for (int i=0; i<n; ++i) {
+		int ind = wordToAdd[i] - 'a';
+		cout << ind << endl;
+		if (current->chld[ind] == nullptr) {
+			current->chld[ind] = new TrieNode();
+		}
+		current  = current->chld[ind];
+		++(current->nw);
+	}
+	current->isTerminal = true;
+}
+
+// returns number of words having a given prefix
+int getNbOfWords(const std::string& wordToAdd) {
+	unsigned long n = wordToAdd.size() ;
+	TrieNode* current = root;
+	for (int i=0; i<n; ++i) {
+		int ind = wordToAdd[i] - 'a';
+		if (current->chld[ind] == nullptr) {
+			return 0;
+		}
+		current  = current->chld[ind];
+	}
+return current->nw;
+}\end{lstlisting}
+\color{black}
+\section{References}
+
