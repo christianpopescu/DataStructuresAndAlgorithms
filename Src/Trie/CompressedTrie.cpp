@@ -10,11 +10,16 @@ public:
     CompressedTrieNode* child[26];
     bool isTerminal;
     std::string theLabel;
-  TrieNode()
+  CompressedTrieNode()
     : theLabel("") {
         isTerminal = false;
         for (int i=0; i<26; ++i) child[i] = nullptr;
     }
+  CompressedTrieNode(std::string label, bool terminal) :
+    theLabel(label),
+    isTerminal(terminal) {
+    for (int i=0; i<26; ++i) child[i] = nullptr;
+  }
     friend TrieIterator;
 };
 
@@ -29,9 +34,7 @@ public:
     int nw = wordToAdd.size();
     int index = wordToAdd[0] - 'a';
     if (current->child[index] = nullptr) {
-      current->child[index] = new CompresseTrieNode;
-      current->child[index]->theLabel = wordToAdd;
-      current->child[index]->isTerminal = true;
+      current->child[index] = new CompressedTrieNode (wordToAdd, true);
     } else if (wordToAdd == current->theLabel) {
       current->isTerminal = true;
     } else {
@@ -46,21 +49,17 @@ public:
 	int loop_index = ch -'a'
 	if (current->child[loop_index ] == nullptr) {   
 	  // there is no child -> create one
-	  current->child[loop_index] = new CompressedTrieNode;
-	  current->child[loop_index]->theLabel = wordToAdd.substr(i);
-	  current->child[loop_index]->isTerminal = true;
+	  current->child[loop_index] = new CompressedTrieNode ( wordToAdd.substr(i), true);
 	} else {
 	  // ther is one child -> recursively call function with this child and the rest of the word
-		AddWordToNode(current->child[loop_index ], wordToAdd.substr(i));
+	  AddWordToNode(current->child[loop_index ], wordToAdd.substr(i));
 	}
 	  
       } if (i == nw) {
 	// match till now and the current label is longer than the word to add
 	// ->split the node in two nodes
 	CompressedTrieNode* bkp = node; // save current node
-	node = new CompressedTrieNode;
-	node->theLabel = wordToAdd.substr(0,i);
-	node->isTerminal = true;
+	node = new CompressedTrieNode (wordToAdd.substr(0,i), true);
 	node->child[bkp->theLabel[i] - 'a'] = bkp;
 	bkp->theLabel = bkp->theLabel.substr(i); 
       } else { 
@@ -70,39 +69,15 @@ public:
 	//      -> a new node that contains the rest of word to add
         // split
 	CompressedTrieNode* bkp = node; // save current node
-	node = new CompressedTrieNode;
-	node->theLabel = wordToAdd.substr(0,i);
+	node = new CompressedTrieNode (wordToAdd.substr(0,i), false);
 	node->child[bkp->theLabel[i] - 'a'] = bkp;
 	bkp->theLabel = bkp->theLabel.substr(i); 
 	// add new node
-	int loop_index = wordToAdd[i] - 'a' 
-	node->child[loop_index] = new CompressedTrieNode;
-	node->child[loop_index]->theLabel = wordToAdd.substr(i);
-	node->child[loop_index}->isTerminal = true;
+	node->child[ wordToAdd[i] - 'a'] = new CompressedTrieNode(wordToAdd.substr(0,i), true);
       }
 	       
     }
-    
-    
   }
-  
-     void AddWordToList(const std::string& wordToAdd) {
-        unsigned long n = wordToAdd.size() ;
-        TrieNode* current = &root;
-        int index = 0;
-        for (int i=0; i<n; ++i) {
-	  index = wordToAdd[i] - 'a';
-	  if (current->child[index] == nullptr) 
-	  
-          if (current->children[INDEX(wrd[i])] == nullptr) {
-                current->children[INDEX(wrd[i])] = new TrieNode();
-                current->children[INDEX(wrd[i])]->value = wrd[i];
-                }
-            current  = current->children[INDEX(wrd[i])];
-        }
-        current->isTerminal = true;
-        current->theWord = wordToAdd;
-    }
 };
 
 class TrieIterator {
