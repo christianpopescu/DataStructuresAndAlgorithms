@@ -9,15 +9,16 @@ public:
     CompressedTrieNode* child[26];
     bool isTerminal;
     std::string theLabel;
+  int nbWord;
   CompressedTrieNode()
-    : theLabel("") {
+    : theLabel(""), nbWord(0) {
         isTerminal = false;
         for (int i=0; i<26; ++i) child[i] = nullptr;
     }
-  CompressedTrieNode(std::string label, bool terminal) :
+  CompressedTrieNode(std::string label, bool terminal, int nb=0) :
     theLabel(label),
+    nbWord(0),
     isTerminal(terminal) {
-    cout << label << "    " << terminal << endl;
     for (int i=0; i<26; ++i) child[i] = nullptr;
   }
 };
@@ -42,7 +43,6 @@ public:
   
   void AddWordToNode(CompressedTrieNode*& node, const std::string wordToAdd)
   {
-    cout << "Word to add " << wordToAdd << endl;
     CompressedTrieNode* current = node;
     //int index = wordToAdd[0] - 'a';
     //    if (current->child[index] = nullptr) {
