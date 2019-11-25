@@ -29,7 +29,7 @@ public:
   TrieAsWordList() {
     root = new CompressedTrieNode("",false);
   }
-  void AddWordToRoot(CompressedTrieNode* node, const std::string wordToAdd)
+  void AddWordToRoot(CompressedTrieNode*& node, const std::string wordToAdd)
   {
     int index = wordToAdd[0] - 'a';
     
@@ -42,6 +42,7 @@ public:
   
   void AddWordToNode(CompressedTrieNode*& node, const std::string wordToAdd)
   {
+    cout << "Word to add " << wordToAdd << endl;
     CompressedTrieNode* current = node;
     //int index = wordToAdd[0] - 'a';
     //    if (current->child[index] = nullptr) {
@@ -65,7 +66,7 @@ public:
 	  // ther is one child -> recursively call function with this child and the rest of the word
 	  AddWordToNode(current->child[index ], wordToAdd.substr(i));
 	}
-      } if (i == nw) {
+      } else if (i == nw) {
 	// match till now and the current label is longer than the word to add
 	// ->split the node in two nodes
 	CompressedTrieNode* bkp = node; // save current node
@@ -86,7 +87,7 @@ public:
 	node->child[ wordToAdd[i] - 'a'] = new CompressedTrieNode(wordToAdd.substr(i), true);
       }
 	       
-    }
+     }
   }
   void printRoot() {
     for (int i=0; i<26; ++i)
