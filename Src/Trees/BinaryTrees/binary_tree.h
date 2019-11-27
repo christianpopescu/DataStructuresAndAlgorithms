@@ -19,8 +19,12 @@ class BinaryTree {
 			std::cout << "I am here" << std::endl;
 		InsertValue(root, value);
 	}
+	void VisitTree(){
+		
+	}	
 	private:
 	TreeNode<T>* root;
+	
 	void InsertValue(TreeNode<T>* node, T value) {
 		std::cout << "insert value " << node <<std::endl;
 		if (node == nullptr) {
@@ -35,4 +39,11 @@ class BinaryTree {
 			InsertValue (node->right, value);
 		}
 	}
+	
+	void VisitNode(TreeNode<T>* node) {
+		if (node == nullptr) return;
+		VisitNode(node->left);
+		VisitNode(node->right);
+	}
+	
 };
