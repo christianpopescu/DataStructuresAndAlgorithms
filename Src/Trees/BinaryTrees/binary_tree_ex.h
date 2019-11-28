@@ -1,35 +1,53 @@
+/*
+ Name : Binary Tree Extended
+ Node with left, right, parent
+
+*/
+
 #include <iostream>
 #include <functional>
 
 template<typename T>
-class TreeNode {
+class TreeNodeEx {
 	public:
 	TreeNode() = default;
 	explicit TreeNode(T value) 
 	: value(value),
+      parent {nullptr},
 	  left {nullptr},
 	  right {nullptr} {
-		std::cout << "I am here" << std::endl;
 	}
+	TreeNode* parent
 	TreeNode* left;
 	TreeNode* right;
+	
 	T value;                          
 	void AcceptFunction(std::function<void(TreeNode*)>);
 };
-
+struct Position {
+	Positon(TreeNode<T>* pr, TreeNode<T>* pos) 
+	: parent {pr},
+	position{ps} {}
+	TreeNode<T>* parent;
+	TreeNode<T>* position;
+}
 template<typename T>
-class BinaryTree {
+class BinaryTreeEx {
 	public:
 	BinaryTree() :root(nullptr) {}
 	void InsertValue(T value) {
-			std::cout << "I am here" << std::endl;
-		InsertValue(root, value);
+		TreeNode<T>* node = new TreeNode<T>(value);
+		if (root == null) {
+			root = node;
+		} else {
+			Position p (root, nullptr);
+			InsertValue(root, value);
+		}
 	}
 	void VisitTree(){
 	
 	}
 	void VisitTree (std::function<void(TreeNode<T>*)> func) {
-		std::cout << "visit tree" << std::endl;
 	VisitNode(root, func);
 	}
 	
@@ -37,14 +55,23 @@ class BinaryTree {
 	TreeNode<T>* root;
 	
 	void InsertValue(TreeNode<T>*& node, T value) {
-		std::cout << "insert value " << node <<std::endl;
 		if (node == nullptr) {
-			node = new TreeNode<T>(value);
-		} else if (node->value > value) {
+			node = 
+			
+		if (node->value > value) {
+			if (node->left == nullptr) {
+				node->left = new TreeNode<T>(value);
+				node->left->parent = node;
+			} else {
 			InsertValue(node->left, value);
-		} else {
-			InsertValue (node->right, value);
-		}
+			}
+		} else if (node->right == nullptr) {
+				node->right = new TreeNode<T>(value);
+				node->right->parent = node;
+			} else {
+			InsertValue(node->right, value);
+			}
+		} 
 	}
 	
 	
