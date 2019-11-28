@@ -1,4 +1,11 @@
 #include <iostream>
+#include <functional>
+/*template<typename T>
+class VisitNode {
+	public VisitTreeNode(TreeNode<T>*);
+}
+*/
+
 template<typename T>
 class TreeNode {
 	public:
@@ -9,6 +16,7 @@ class TreeNode {
 	TreeNode* left;
 	TreeNode* right;
 	T value;
+	void AcceptFunction(std::function<void(TreeNode*)>);
 };
 
 template<typename T>
@@ -20,8 +28,13 @@ class BinaryTree {
 		InsertValue(root, value);
 	}
 	void VisitTree(){
-		
-	}	
+	
+	}
+	void VisitTree (std::function<void(TreeNode<T>*)> func) {
+		std::cout << "visit tree" << std::endl;
+	VisitNode(root, func);
+	}
+	
 	private:
 	TreeNode<T>* root;
 	
@@ -30,7 +43,7 @@ class BinaryTree {
 		if (node == nullptr) {
 			std::cout << "nullptr" << std::endl;
 			node = new TreeNode<T>(value);
-			std::cout << "nullptr end" << std::endl;
+			std::cout << "nullptr end" << node->value << std::endl;
 		} else if (node->value > value) {
 			std::cout << "left" << std::endl;
 			InsertValue(node->left, value);
@@ -40,10 +53,19 @@ class BinaryTree {
 		}
 	}
 	
+	
 	void VisitNode(TreeNode<T>* node) {
 		if (node == nullptr) return;
 		VisitNode(node->left);
 		VisitNode(node->right);
 	}
+	
+	void VisitNode(TreeNode<T>* node, std::function<void(TreeNode<T>*)> func) {
+		if (node == nullptr) return;
+		func(node);
+		VisitNode(node->left, func);
+		VisitNode(node->right, func);
+	}
+
 	
 };

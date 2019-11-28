@@ -5,6 +5,7 @@ int main() {
 	BinaryTree<int> bts;
 	cout << "bts insert value" << endl;
 	bts.InsertValue(10);
+	bts.VisitTree([](TreeNode<int>* node){cout << node->value <<endl;});
 	cout << "End of programm" << endl;
 	return 0;
 }
