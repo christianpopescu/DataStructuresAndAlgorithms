@@ -10,12 +10,15 @@ template<typename T>
 class TreeNode {
 	public:
 	TreeNode() = default;
-	explicit TreeNode(T value) : value(value) {
+	explicit TreeNode(T value) 
+	: value(value),
+	  left {nullptr},
+	  right {nullptr} {
 		std::cout << "I am here" << std::endl;
 	}
 	TreeNode* left;
 	TreeNode* right;
-	T value;
+	T value;                          
 	void AcceptFunction(std::function<void(TreeNode*)>);
 };
 
@@ -38,7 +41,7 @@ class BinaryTree {
 	private:
 	TreeNode<T>* root;
 	
-	void InsertValue(TreeNode<T>* node, T value) {
+	void InsertValue(TreeNode<T>*& node, T value) {
 		std::cout << "insert value " << node <<std::endl;
 		if (node == nullptr) {
 			std::cout << "nullptr" << std::endl;
@@ -61,7 +64,9 @@ class BinaryTree {
 	}
 	
 	void VisitNode(TreeNode<T>* node, std::function<void(TreeNode<T>*)> func) {
+		std::cout << "Visit Node" << node << std::endl;
 		if (node == nullptr) return;
+		
 		func(node);
 		VisitNode(node->left, func);
 		VisitNode(node->right, func);
