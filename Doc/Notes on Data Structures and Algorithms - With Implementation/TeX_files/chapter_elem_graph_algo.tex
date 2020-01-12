@@ -1,0 +1,29 @@
+% !TeX spellcheck = en_US
+\chapter{Graph algorithms}
+\section{Breadth-first search (BFS)}
+The algorithm use a \textbf{Queue} to manage the gray/visiting vertices. 
+
+\section{Depth-first search(DFS)}
+The algorithm use a \textbf{Stack} to manage the vising vertices.
+
+It could be implemented simple as recursive algorithm.
+
+\section{Topological Sorting}
+
+A \textbf{Topological Sorting} of a DAG is an linear ordering of its vertices such that for each vertice (u,v) in DAG the u appears before v in the ordering.
+
+
+There are two known/classical algorithms for the Topological Sorting.
+
+\subsection{TS with DFS}
+
+Topological-Sorting(G)
+1. Call DFS(G) to compute finishing time for each vertex.
+2. When a vertex is finished inserted into a front of a linked list
+3. Return the linked list of vertices.
+
+\subsection{TS taking the vertex without inbound edge first}
+
+1. Add all vertices without inbound edges to the ordered list
+2. Remove from the graph these vertices's and the corresponding edges.
+3. Repete steps 1 and 2 while there are vertices in the graph. If no vertices without inbount edges there is no solution.
