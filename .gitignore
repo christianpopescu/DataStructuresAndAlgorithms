@@ -201,3 +201,7 @@ cmake-build-debug/
 
 # Latex
 *.out
+*.bbl
+*.blg
+*.bib
+/Doc/Notes on Data Structures and Algorithms/Notes on Data Structures and Algorithms.run.xml
