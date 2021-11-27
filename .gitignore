@@ -205,3 +205,5 @@ cmake-build-debug/
 *.blg
 *.bib
 /Doc/Notes on Data Structures and Algorithms/Notes on Data Structures and Algorithms.run.xml
+*.bib
+*.out
