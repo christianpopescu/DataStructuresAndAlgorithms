@@ -1,15 +1,53 @@
 % !TeX spellcheck = en_US
 \chapter{Bit Manipulation}
+\lstset { %
+	language=C++,
+	backgroundcolor=\color{black!5}, % set backgroundcolor
+	basicstyle=\footnotesize,% basic font setting
+	tabsize=4,
+}
 
 [\cite[See][- 2.3 Bit Manipulations]{LaaksonenGuideToCompetitiveProgramming}]
 
-\section{Merge sort}
+\section{Some interesting functions and examples}
 
-It is an example of \textbf{divide and conquer} strategy.
+\begin{itemize}
+	\item set the k\textsuperscript{th} bit of x to 1. 
+	\begin{lstlisting}
+	\x|(1<<k)
+	\end{lstlisting}
+	\item set the k\textsuperscript{th} bit of x to 0.
+	\begin{lstlisting}
+	x&~(1<<k)
+	\end{lstlisting}
+	\item inverts the k\textsuperscript{th} bit of x to 0.
+	\begin{lstlisting}
+	x^(1<<k)
+	\end{lstlisting}
+	
+	Still to do what is on page 22
+		
+\end{itemize}
 
+
+
+
+The following bloc prints the bit representation of an integer:
+\lstset { %
+	language=C++,
+	backgroundcolor=\color{black!5}, % set backgroundcolor
+	basicstyle=\footnotesize,% basic font setting
+	tabsize=4,
+}
+
+\color{blue}
+\begin{lstlisting}[frame=single]
+for (int k = 31; k >= 0; k--) {
+	if (x&(1<<k)) cout << "1"
+	else cout << "0"		
+}
+
+\end{lstlisting}
+
+\color{black}
 \section{Quick sort}
-The quicksort algorithm has a worst-case running time of $\Theta(n^{2})$ on an input array of n numbers.
-
-Applies \textbf{divide and conquer} strategy.
-
-\section{Heap sort}
