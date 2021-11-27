@@ -1,6 +1,7 @@
 \documentclass[a4paper,12pt]{book}
 \usepackage[utf8]{inputenc}
 \usepackage[english]{babel}
+\usepackage{csquotes}
 \usepackage{graphicx}
 \usepackage{algorithm2e}
 \usepackage{tikz}
@@ -13,7 +14,9 @@
 \usepackage{fifo-stack}
 \usepackage{amsmath}
 \usepackage{bm}
-\addbibresource{./Bibliography/DataStructuresAndAlgorithms.bib}
+\bibliographystyle{alpha}
+\bibliography{./Bibliography/DataStructuresAndAlgorithms.bib}
+%\addbibresource{./Bibliography/DataStructuresAndAlgorithms.bib}
 % !TeX spellcheck = en_US
 
 \begin{document}
@@ -55,8 +58,8 @@
 	
 	\chapter{References}
 	
-\printbibliography
-%	\bibliographystyle{abbrv}
-	
+
 \end{appendices}
+
+\printbibliography[heading=bibintoc]
 \end{document}
