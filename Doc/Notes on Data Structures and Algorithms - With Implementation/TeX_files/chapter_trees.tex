@@ -45,6 +45,7 @@ class BinaryNode {
 };
 \end{lstlisting}
 \color{black}
+
 \subsection{Tree traversals}
 \begin{algorithm}[H]
 \caption{Inorder recursive traversal}
@@ -58,6 +59,28 @@ class BinaryNode {
 \EndProcedure
 \end{algorithmic}
 \end{algorithm}
+
+
+\begin{algorithm}[H]
+	\caption{Inorder iterative traversal}
+	\begin{algorithmic}
+		\Procedure{InorderIterative}{$node$}
+		\State $current \leftarrow node$
+		\State $stack \leftarrow empty stack$
+		\While{NOT ( $stack$ is empty) OR $current != NULL$ }
+		\If{$current != NULL$}
+		\State stack.push($current$)
+		\State $current$ $\leftarrow$ $current.left$
+		\Else
+		\State $current$ $\leftarrow$ stack.pop()
+		\State\Call{Visit}{$current$}
+		\State $current$ $\leftarrow$ $current.right$
+		\EndIf
+		\EndWhile
+		\EndProcedure
+	\end{algorithmic}
+\end{algorithm}
+
 \section{Binary Search Tree}
 
 As the number of children of one node is at most 2 we can keep direct links to them.
